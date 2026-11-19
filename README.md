@@ -53,15 +53,38 @@
   https://github.com/Joao-Pedro-RS/prova2sistemasdistribuidos/blob/main/evidencia%205%20-%20valida%C3%A7%C3%A3o%20completa
 
 
+## 7. Análise Técnica
+**Questão 1
+Qual é a Função do semáforo no processamento dos pedidos?**
 
-## Etapa 5 - Análise Técnica
+Permitir que os threads sejam façam requisições de maneira coordenada
 
-**Questão 1. Qual é a Função do semáforo no processamento dos pedidos?**
+**Questão 2
+Por que é necessário sincronizar os dados entre o servidor principal e a réplica?**
 
-**Questão 2. Por que é necessário sincronizar os dados entre o servidor principal e a réplica?**
+Caso o servidor principal não responda ou falhe o servidor replica atua como Backup para auxiliar no processamento
 
-**Questão 3. O que significa tolerância a falhas e como ela aparece neste programa?**
+**Questão 3
+O que significa tolerância a falhas e como ela aparece neste programa?**
 
-**Questão 4. Para que serve o Lock no programa e como o controle de acesso aos recursos ajuda a prevenir problemas de concorrência?**
+Tolerancia a falhas serve para apontar para o servidor backup para qualquer instabilidade do primeiro servidor
 
-**Questão 5. Considerando a sequência de eventos, a sincronização do estoque deve acontecer antes ou depois do processamento dos pedidos? Explique a a relação de causalidade**
+**Questão 4
+Para que serve o lock no programa e como ele ajuda a prevenir problemas de concorreência?**
+
+O Lock não deixa que os theads trabalhe ao mesmo tempo com as requisições, um por vez faz seu processamento de forma "travada" (Lock)
+
+**Questão 5
+A sincronização do estoque deve acontecer antes ou depois do processamento dos pedidos? Explique a relação de casualidade**
+
+Após para que os proximos pedidos considere o valor real em estoque, assim que o processamento dos pedidos é feito deve-se replicar o processamento do servidor principal no segundo, para que ambos os servidores estejam atualizados.
+
+## 8. Conclusão
+**Descreva o que você aprendeu com esta atividade.**
+
+É de extrema importancia que os threads sejam travados para trabalhar em fila e permitir uma requisição por vez. Além disso a replicação dos dados no servidor é uma questão de segura(redundancia), bem como que o tratamento a falhas é tão importante quanto replicar os dados, pois assim ele só é utilizado se necessário.
+
+## 9. Entrega
+**Aluno:** João Pedro Ramos Soares
+**Repositório:** https://github.com/Joao-Pedro-RS/prova2sistemasdistribuidos
+**Data:** 18/11/2026
