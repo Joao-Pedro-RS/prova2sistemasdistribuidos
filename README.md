@@ -17,40 +17,40 @@
 
 ## 3. Problema A - Concorrência
 **Qual problema foi identificado?**
-  
+  O cliente solicitou que fosse processado 2 pedidos por vez ao invés de 3
   
 **Qual alteração foi realizada?**
-  
+  Foi alterado o valor de "MAXIMO_SIMULTANEO" de 3 para 2
   
   <ins>**Evidencia 2 - Concorrência**</ins>
   https://github.com/Joao-Pedro-RS/prova2sistemasdistribuidos/blob/main/evidencia%202%20-%20concorr%C3%AAncia
 
 ## 4. Problema B - Replicação e consistência
 **Qual problema foi identificado?**
-  
+  Os valores não estavam sendo replicados corretamente
   
 **Qual alteração foi realizada?**
-
+  principal["estoque"] = principal["estoque"] >> Alterado para >> replica["estoque"] = principal["estoque"]
 
   <ins>**Evidencia 3 - Sincronização**</ins>
   https://github.com/Joao-Pedro-RS/prova2sistemasdistribuidos/blob/main/evidencia%203%20-%20sincroniza%C3%A7%C3%A3o
 
 ## 5. Problema C - Tolerância a falhas
 **Qual problema foi identificado?**
-  
+  Na condição IF estava sendo interpretado o principal e não a replica
   
 **Qual alteração foi realizada?**
-
+  if principal["online"]: return( "REPLICA", replica["estoque"] ) >> Alterado para >> if replica["online"]: return( "REPLICA", replica["estoque"] )
 
   <ins>**Evidencia 4 - Tolerância a falhas**</ins>
   https://github.com/Joao-Pedro-RS/prova2sistemasdistribuidos/blob/main/evidencia%204%20-%20toler%C3%A2ncia%20e%20falhas
 
 ## 6. Validação do programa
 **Descreva os resultados observados após as três correções**
-  
+  Após todas as alterações o programa executou conforme a expectativa do Cliente.
 
-
-
+  <ins>**Evidencia 5 - Execução completa**</ins>
+  https://github.com/Joao-Pedro-RS/prova2sistemasdistribuidos/blob/main/evidencia%205%20-%20valida%C3%A7%C3%A3o%20completa
 
 
 
